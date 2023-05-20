@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* bg-[#256908]
+bg-[#ce0000] */
+
+.active{
+    border-bottom: 2px solid #ce0000;
+}
