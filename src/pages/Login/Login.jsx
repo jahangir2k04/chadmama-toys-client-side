@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
@@ -7,6 +7,9 @@ const Login = () => {
     const [error, setError] = useState('');
     const passwordRef = useRef();
     const { signIn, googleSignIn } = useContext(AuthContext);
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -15,9 +18,10 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         signIn(email, password)
-            .then(result => {
-                const createdUser = result.user;
-                console.log(createdUser);
+            .then( () => {
+                // const createdUser = result.user;
+                // console.log(createdUser);
+                navigate(from, {replace: true});
             })
             .catch(() => setError('Invalid email or password'))
     }
@@ -25,9 +29,10 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         setError('');
         googleSignIn()
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
+        .then( () => {
+            // const loggedUser = result.user;
+            // console.log(loggedUser);
+            navigate(from, {replace: true});
         })
         .catch(() => setError('Something is wrong'))
     }
