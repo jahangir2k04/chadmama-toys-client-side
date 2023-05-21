@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className="bg-black px-2 md:px-0 py-10 text-gray-500">
+        <div className="bg-black px-2 md:px-0 py-10 text-gray-500 px-2">
             <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-5 text-center md:text-start">
                 <div>
                     <img className="w-24 h-24 mx-auto md:mx-0" src="/toy-logo-r.png" alt="" />
