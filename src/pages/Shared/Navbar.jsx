@@ -1,8 +1,17 @@
 import { Link, NavLink } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+        .then()
+        .catch()
+    }
 
     const menuItems = <>
         <NavLink to='/'
@@ -11,12 +20,14 @@ const Navbar = () => {
         <NavLink to='/all-toys'
             className={({ isActive }) => isActive ? 'active' : ''}
         >All Toys</NavLink>
-        <NavLink to='/my-toys'
+
+        {user && <NavLink to='/my-toys'
             className={({ isActive }) => isActive ? 'active' : ''}
-        >My Toys</NavLink>
-        <NavLink to='/add-toy'
+        >My Toys</NavLink>}
+
+        {user && <NavLink to='/add-toy'
             className={({ isActive }) => isActive ? 'active' : ''}
-        >Add A Toy</NavLink>
+        >Add A Toy</NavLink>}
         <NavLink to='/blogs'
             className={({ isActive }) => isActive ? 'active' : ''}
         >Blogs</NavLink>
@@ -44,10 +55,18 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <FaUserCircle className='mr-1 w-9 md:w-12 h-9 md:h-12' title='User Name' />
-                <Link to='/login'>
-                    <button className='bg-[#ce0000] px-3 md:px-6 py-1 md:py-2 text-xl md:text-2xl text-white font-semibold rounded-lg'>Login</button>
-                </Link>
+                {user?.photoURL &&
+                    <div className="w-12 me-1 rounded-full">
+                        <img className='h-12 rounded-full' src={user.photoURL} alt="" title={user.displayName} />
+
+                    </div>
+                }
+                {user ?
+                    <button onClick={handleLogout} className='bg-[#ce0000] px-3 md:px-6 py-1 md:py-2 text-xl md:text-2xl text-white font-semibold rounded-lg'>Logout</button> :
+                    <Link to='/login'>
+                        <button className='bg-[#ce0000] px-3 md:px-6 py-1 md:py-2 text-xl md:text-2xl text-white font-semibold rounded-lg'>Login</button>
+                    </Link>
+                }
             </div>
         </div>
     );
