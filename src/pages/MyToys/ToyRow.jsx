@@ -4,7 +4,7 @@ const ToyRow = ({toy}) => {
     const { name, photo, sellerName, sellerEmail, quantity, price, rating } = toy;
 
     return (
-        <tr>
+        <tr className="hover">
             <td>
                 <div className="avatar">
                     <div className="rounded w-24 h-24">

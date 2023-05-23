@@ -25,6 +25,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            <p className='text-center my-5'>&copy;Chadmama Toys 2023</p>
         </div>
     );
 };
