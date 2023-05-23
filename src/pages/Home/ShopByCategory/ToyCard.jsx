@@ -22,7 +22,7 @@ const ToyCard = ({ toy }) => {
                     <span className='ms-2 my-auto'> {rating}</span>
                 </div>
                 <div className="card-actions ">
-                    <Link to={`/toy/:${_id}`} className='bg-[#ce0000] text-white text-lg w-full py-2 text-center  font-bold'> View Details</Link>
+                    <Link to={`/toy/${_id}`} className='bg-[#ce0000] text-white text-lg w-full py-2 text-center  font-bold'> View Details</Link>
                 </div>
             </div>
         </div>
