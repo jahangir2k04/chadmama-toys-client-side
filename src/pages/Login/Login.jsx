@@ -48,7 +48,7 @@ const Login = () => {
     }
 
     return (
-        <div className="max-w-7xl px-2 mx-auto min-h-screen md:flex items-center justify-center">
+        <div className="max-w-7xl px-2 mx-auto min-h-screen md:flex items-center justify-center ">
             <div className="md:flex items-center gap-10">
                 <div className="card-body shadow-2xl bg-base-100 rounded-2xl w-full md:w-[420px]">
                     <form onSubmit={handleLogin}>

@@ -32,22 +32,6 @@ const Banner = () => {
         </div>
       </Slider>
     </div>
-
-
-    // <Carousel autoPlay={true} interval={2000} infiniteLoop={true}>
-    //   <div>
-    //     <img className='w-full' src="https://i.ibb.co/jzMDzy9/635870909568063737-Thinkstock-Photos-100029020.jpg" alt="Image 1" />
-    //     <p className="legend">Legend 1</p>
-    //   </div>
-    //   <div>
-    //     <img className='w-full' src="https://i.ibb.co/Qjz54CL/Dr-Q9-Zb-ZUc-AAz-Jr-R.jpg" alt="Image 2" />
-    //     <p className="legend">Legend 2</p>
-    //   </div>
-    //   <div>
-    //     <img className='w-full' src="https://i.ibb.co/pPbDt2D/plush-banner.jpg" alt="Image 3" />
-    //     <p className="legend">Legend 3</p>
-    //   </div>
-    // </Carousel>
   );
 };
 
