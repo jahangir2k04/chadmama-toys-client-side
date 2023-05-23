@@ -38,6 +38,7 @@ const AddToy = () => {
                     autoClose: 3000
                   });
             }
+            form.reset();
         })
 
     }
