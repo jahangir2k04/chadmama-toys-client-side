@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 
-const AllToyRow = ({toy}) => {
 
-    const {name, subCategory, price, quantity } = toy;
+const AllToyRow = ({ toy, handleToast }) => {
+
+    const { _id, name, subCategory, price, quantity } = toy;
 
     return (
         <tr className="hover">
@@ -11,7 +13,12 @@ const AllToyRow = ({toy}) => {
             <td>{price}</td>
             <td>{quantity}</td>
             <th>
-                <button className="bg-red-600 text-white px-5  py-2 text-center">View Details</button>
+                <Link
+                    onClick={handleToast}
+                    to={`/toy/${_id}`}
+                    >
+                    <button className="bg-red-600 text-white px-5  py-2 text-center">View Details</button>
+                </Link>
             </th>
         </tr>
     );

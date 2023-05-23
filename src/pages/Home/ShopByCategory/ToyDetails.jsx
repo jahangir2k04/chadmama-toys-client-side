@@ -5,9 +5,9 @@ const ToyDetails = () => {
     const { name, photo, sellerName, sellerEmail, price, rating, quantity, description } = useLoaderData();
 
     return (
-        <div className="my-24 max-w-7xl mx-auto px-2 grid grid-cols-1 md:grid-cols-2">
-            <div className="">
-                <img className="mx-auto" src={photo} alt="" />
+        <div className="my-24 max-w-7xl mx-auto px-2 grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="md:h-[340px]">
+                <img className="mx-auto h-full" src={photo} alt="" />
             </div>
             <div className="text-lg space-y-2">
                 <h3>Toy Name : {name}</h3>
