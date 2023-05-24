@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import GalleryInfo from "./GalleryInfo";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Loader from "../../Loader/Loader";
 
 
 const Gallery = () => {
@@ -10,14 +11,20 @@ const Gallery = () => {
         duration: 1000
     });
     const [galleryData, setGalleryData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/gallery')
             .then(res => res.json())
             .then(data => {
                 setGalleryData(data);
+                setLoading(false);
             })
     }, []);
+
+    if(loading){
+        return <Loader></Loader>
+    }
 
     return (
         <div data-aos="fade-right" className=" my-20 ">

@@ -11,17 +11,18 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [type, setType] = useState('');
 
     useEffect(() => {
-        fetch(`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/my-toys?email=${user.email}`)
-        .then(res => res.json())
-        .then(data => {
-            setMyToys(data);
-            setLoading(false);
-        })
-    }, [user.email]);
+        fetch(`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/my-toys?email=${user?.email}&sort=${type}`)
+            .then(res => res.json())
+            .then(data => {
+                setMyToys(data);
+                setLoading(false);
+            })
+    }, [user?.email, type]);
 
-    if(loading){
+    if (loading) {
         return <Loader></Loader>
     }
 
@@ -55,8 +56,19 @@ const MyToys = () => {
         })
     }
 
+    const handleSorting = event => {
+        setType(event.target.value);
+    }
+
     return (
         <div className="max-w-7xl mx-auto px-2 my-10">
+
+            <select onChange={handleSorting} className="py-2 px-3 bg-red-100 border border-red-600">
+                <option value="default">Default</option>
+                <option value="ascending">Price : Ascending</option>
+                <option value="descending">Price : Descending</option>
+            </select>
+
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
@@ -76,9 +88,9 @@ const MyToys = () => {
                     <tbody>
                         {
                             myToys.map(toy => <ToyRow
-                            key={toy._id}
-                            toy={toy}
-                            handleDelete={handleDelete}
+                                key={toy._id}
+                                toy={toy}
+                                handleDelete={handleDelete}
                             ></ToyRow>)
                         }
                     </tbody>

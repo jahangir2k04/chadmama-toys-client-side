@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-const AllToyRow = ({ toy, handleToast }) => {
+const AllToyRow = ({ toy, handleAlert }) => {
 
     const { _id, name, subCategory, price, quantity } = toy;
 
@@ -14,7 +14,7 @@ const AllToyRow = ({ toy, handleToast }) => {
             <td>{quantity}</td>
             <th>
                 <Link
-                    onClick={handleToast}
+                    onClick={handleAlert}
                     to={`/toy/${_id}`}
                     >
                     <button className="bg-red-600 text-white px-5  py-2 text-center">View Details</button>
