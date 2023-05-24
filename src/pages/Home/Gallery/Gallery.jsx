@@ -21,7 +21,7 @@ const Gallery = () => {
 
     return (
         <div data-aos="fade-right" className=" my-20 ">
-            <h2 className="mb-10 text-red-600 text-4xl font-bold text-center underline underline-offset-8">Toys Gallery</h2>
+            <h2 className="mb-10 text-4xl font-bold text-center underline underline-offset-8">Toys Gallery</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
                 {
                     galleryData.map(data => <GalleryInfo

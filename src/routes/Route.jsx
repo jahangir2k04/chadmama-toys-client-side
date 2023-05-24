@@ -10,7 +10,8 @@ import Register from '../pages/Register/Register';
 import PrivateRoute from './PrivateRoute';
 import AddToy from '../pages/AddToy/AddToy';
 import ToyDetails from '../pages/Home/ShopByCategory/ToyDetails';
-import UpdateToy from '../pages/MyToys/UpdateToy';
+import UpdateToy from '../pages/MyToys/UpdateToy'
+
 
 const router = createBrowserRouter([
     {
@@ -41,9 +42,9 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/toy/${params.id}`)
             },
             {
-              path: 'updateToy/:id'  ,
-              element: <UpdateToy></UpdateToy>,
-              loader: ({params}) => fetch`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/my-toy/${params.id}`
+                path: 'updateToy/:id',
+                element: <UpdateToy></UpdateToy>,
+                loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/toy/${params.id}`)
             },
             {
                 path: 'blogs',

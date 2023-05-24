@@ -3,20 +3,27 @@ import { AuthContext } from "../../providers/AuthProvider";
 import ToyRow from "./ToyRow";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
+import Loader from "../Loader/Loader";
 
 const MyToys = () => {
 
     useTitle('My Toys');
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/my-toys?email=${user.email}`)
         .then(res => res.json())
         .then(data => {
             setMyToys(data);
+            setLoading(false);
         })
     }, [user.email]);
+
+    if(loading){
+        return <Loader></Loader>
+    }
 
     const handleDelete = id => {
         Swal.fire({
