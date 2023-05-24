@@ -9,7 +9,7 @@ const ShopByCategory = () => {
     const [category, setCategory] = useState('Teddy Bear');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category?name=${category}`)
+        fetch(`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/category?name=${category}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);

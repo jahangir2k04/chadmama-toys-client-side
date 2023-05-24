@@ -3,11 +3,13 @@ import AllToyRow from "./AllToyRow";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 
 
 const AllToys = () => {
 
+    useTitle('All Toys');
     const [allToys, setAllToys] = useState([]);
     const { user } = useContext(AuthContext);
     const { totalToys } = useLoaderData();
@@ -18,7 +20,7 @@ const AllToys = () => {
     const pageNumber = [...Array(totalPages).keys()]
 
     useEffect(() => {
-        fetch(`http://localhost:5000/all-toys?page=${currentPage}&limit=${toyPerPage}`)
+        fetch(`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/all-toys?page=${currentPage}&limit=${toyPerPage}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data);

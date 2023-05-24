@@ -27,22 +27,23 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
             },
             {
-              path: 'update-toy/id'  ,
-              element: <UpdateToy></UpdateToy>
-            },
-            {
                 path: 'all-toys',
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/totalToys')
+                loader: () => fetch('https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/totalToys')
             },
             {
                 path: 'my-toys',
                 element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
             },
             {
+              path: 'updateToy/:id'  ,
+              element: <UpdateToy></UpdateToy>,
+              loader: ({params}) => fetch`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/my-toy/${params.id}`
+            },
+            {
                 path: 'toy/:id',
                 element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/toy/${params.id}`)
             },
             {
                 path: 'blogs',

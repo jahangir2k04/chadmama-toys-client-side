@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ToyRow = ({toy, handleDelete}) => {
+const ToyRow = ({ toy, handleDelete }) => {
 
     const { _id, name, photo, sellerName, sellerEmail, quantity, price, rating } = toy;
 
@@ -20,14 +20,12 @@ const ToyRow = ({toy, handleDelete}) => {
             <td>{rating}</td>
             <td>{quantity}</td>
             <th>
-                <Link to={`/update-toy/${_id}`}>
+                <Link to={`/updateToy/${_id}`}>
                     <button className="bg-red-600 text-white px-5  py-2 text-center">Update</button>
                 </Link>
             </th>
             <th>
-                <Link onClick={() => handleDelete(_id)}>
-                    <button className="bg-red-600 text-white px-5  py-2 text-center">Delete</button>
-                </Link>
+                <button  onClick={() => handleDelete(_id)} className="bg-red-600 text-white px-5  py-2 text-center">Delete</button>
             </th>
         </tr>
     );

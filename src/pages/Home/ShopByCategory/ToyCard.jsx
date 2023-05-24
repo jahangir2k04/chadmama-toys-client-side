@@ -1,14 +1,20 @@
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 
 const ToyCard = ({ toy }) => {
 
+    AOS.init({
+        duration: 1000
+    })
     const { _id, name, photo, price, rating } = toy;
 
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-2xl">
+        <div data-aos="fade-down" className="card card-compact w-96 bg-base-100 shadow-2xl">
             <figure className="h-[255px]"><img src={photo} /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>

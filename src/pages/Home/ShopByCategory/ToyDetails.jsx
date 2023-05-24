@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const ToyDetails = () => {
 
     const { name, photo, sellerName, sellerEmail, price, rating, quantity, description } = useLoaderData();
+    useTitle(name)
 
     return (
         <div className="my-24 max-w-7xl mx-auto px-2 grid grid-cols-1 md:grid-cols-2 gap-5">
