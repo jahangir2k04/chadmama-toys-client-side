@@ -1,5 +1,7 @@
 import useTitle from "../../hooks/useTitle";
+import Additional from "./Additional";
 import Banner from "./Banner";
+import FlashSelling from "./FlashSelling";
 import Gallery from "./Gallery/Gallery";
 import ShopByCategory from "./ShopByCategory/ShopByCategory";
 
@@ -10,6 +12,8 @@ const Home = () => {
             <Banner></Banner>
             <Gallery></Gallery>
             <ShopByCategory></ShopByCategory>
+            <FlashSelling></FlashSelling>
+            <Additional></Additional>
         </div>
     );
 };

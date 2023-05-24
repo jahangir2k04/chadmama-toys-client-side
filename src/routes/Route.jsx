@@ -36,14 +36,14 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
             },
             {
-              path: 'updateToy/:id'  ,
-              element: <UpdateToy></UpdateToy>,
-              loader: ({params}) => fetch`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/my-toy/${params.id}`
-            },
-            {
                 path: 'toy/:id',
                 element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/toy/${params.id}`)
+            },
+            {
+              path: 'updateToy/:id'  ,
+              element: <UpdateToy></UpdateToy>,
+              loader: ({params}) => fetch`https://b7a11-toy-marketplace-server-side-jahangir2k04.vercel.app/my-toy/${params.id}`
             },
             {
                 path: 'blogs',
