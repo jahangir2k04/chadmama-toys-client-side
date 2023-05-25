@@ -102,7 +102,7 @@ const UpdateToy = () => {
                     </div>
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span>Available Quantity</span>
+                            <span>Available Quantity <small className="text-red-600">(updatable)</small></span>
                         </label>
                         <label className="input-group">
                             <input type="text" name="quantity" defaultValue={quantity} className="input input-bordered w-full" required />
@@ -113,7 +113,7 @@ const UpdateToy = () => {
                 <div className="md:flex gap-10 md:px-24">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span>Price</span>
+                            <span>Price <small className="text-red-600">(updatable)</small></span>
                         </label>
                         <label className="input-group">
                             <input type="text" name="price" defaultValue={price} className="input input-bordered w-full" required />
@@ -132,7 +132,7 @@ const UpdateToy = () => {
                 <div className="md:px-24">
                     <div className="form-control w-full">
                         <label className="label">
-                            <span>Detail Description</span>
+                            <span>Detail Description <small className="text-red-600">(updatable)</small></span>
                         </label>
                         <label className="input-group">
                             <textarea name="description" className="textarea text-base w-full h-32 ps-3 pt-2 " defaultValue={description} required></textarea>

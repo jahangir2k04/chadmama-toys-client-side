@@ -1,7 +1,5 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import {  useEffect, useRef, useState } from "react";
 import AllToyRow from "./AllToyRow";
-import Swal from "sweetalert2";
-import { AuthContext } from "../../providers/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 import Loader from "../Loader/Loader";
@@ -13,7 +11,6 @@ const AllToys = () => {
     useTitle('All Toys');
     const [loading, setLoading] = useState(true);
     const [allToys, setAllToys] = useState([]);
-    const { user } = useContext(AuthContext);
     const { totalToys } = useLoaderData();
     const [currentPage, setCurrentPage] = useState(0);
     const [toyPerPage, setToyPerPage] = useState(20);
@@ -36,16 +33,6 @@ const AllToys = () => {
 
     if (loading) {
         return <Loader></Loader>
-    }
-
-
-    const handleAlert = () => {
-        if (!user) {
-            Swal.fire({
-                icon: 'warning',
-                text: 'You have to log in first to view details!',
-            })
-        }
     }
 
     const options = [5, 10, 20, 40, 70, 100];
@@ -100,7 +87,6 @@ const AllToys = () => {
                             allToys.map(toy => <AllToyRow
                                 toy={toy}
                                 key={toy._id}
-                                handleAlert={handleAlert}
                             ></AllToyRow>)
                         }
                     </tbody>

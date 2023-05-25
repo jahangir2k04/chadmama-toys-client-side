@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import app from "../firebase/firebase.config";
+import Swal from "sweetalert2";
 
 
 const auth = getAuth(app);
@@ -40,6 +41,15 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
+    const handleAlert = () => {
+        if (!user) {
+            Swal.fire({
+                icon: 'warning',
+                text: 'You have to log in first to view details!',
+            })
+        }
+    }
+
     const authInfo = {
         user,
         loading,
@@ -47,7 +57,8 @@ const AuthProvider = ({children}) => {
         signIn,
         googleSignIn,
         updateUserProfile,
-        logOut
+        logOut,
+        handleAlert
     };
 
     useEffect( () => {

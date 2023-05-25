@@ -28,7 +28,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
-                console.log(createdUser);
+                // console.log(createdUser);
                 updateUserProfile(createdUser, name, photo)
                     .then(() => {
                         navigate(from, {replace: true});
