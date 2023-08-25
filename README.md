@@ -24,4 +24,4 @@
 * slick-carousel
 * sweetalert2
 ## Server Side
-* **link:**https://github.com/jahangir2k04/chadmama-toys-server-side
+* **link:** https://github.com/jahangir2k04/chadmama-toys-server-side
