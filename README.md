@@ -1,6 +1,6 @@
 ﻿# Chadmama Toys 
  A MERN stack online toys marketplace website. Here is, firebase authentication, admin panel, private route. User can add, update and delete a toy.
-* ### Live Link : ( https://chadmama-toys.web.app/  )
+* **Live Link:** https://chadmama-toys.web.app/
 * This is online toys shopping platform . Here any one can buy their favorite animals toys easily.
 * Any one can visit our website and they can see our **facilities**, **toys** and reads **blogs**
 * If any one can purchase a toy they need to create a account at first . 
